@@ -1,0 +1,19 @@
+version: '3.5'
+
+volumes:
+  php_logs_volume:
+  nginx_logs_volume:
+  db_volume:
+
+services:
+  rqb-composer:
+    container_name: rqb-composer
+    image: node
+    volumes:
+      - ../../:/srv/www
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
+
+networks:
+  default:
+    external:
+      name: docker.pxfd.tech
